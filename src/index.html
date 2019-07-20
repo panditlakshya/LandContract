@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Land Market</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style media="screen">
+    table {
+      border-collapse: collapse;
+      }
+
+    table, td, th {
+      border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="width: 650px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center">Nepal Land Market</h1>
+          <hr/>
+          <br/>
+          <div id="loader">
+            <p class="text-center">Loading...</p>
+          </div>
+          <div id="content" style="display: none;">
+            <div id="Sale">
+            <h4> Plots on sale </h4>
+            <table>
+            <thead>
+              <tr>
+                 <th>Name</th>
+                 <th>Price</th>
+                 <th>Location</th>
+               </tr>
+            </thead>
+            <tbody id="allPlots">
+            </tbody>
+            </table>
+          <!-- <h5> Location </h5>
+         <p id="allPlotsLocation">
+        </p>
+        <h5> Price </h5>
+       <p id="allPlotsPrice">
+      </p> -->
+    </div>
+    <hr/>
+    <div id="Mine">
+          <h4> My plots </h4>
+          <table>
+          <thead>
+            <tr>
+               <th>Name</th>
+               <th>Price</th>
+               <th>Location</th>
+               <th>ForSale</th>
+             </tr>
+          </thead>
+          <tbody id="myPlots">
+          </tbody>
+          </table>
+          <!-- <h5> ForSale </h5>
+          <p id="myPlotsForSale">
+          </p> -->
+          <!-- <h5> Test </h5>
+          <p id="testID">
+          </p> -->
+           </div>
+
+            <hr/>
+            <p id="accountAddress" class="text-center"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
