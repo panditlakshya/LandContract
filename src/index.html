@@ -7,77 +7,120 @@
     <title>Land Market</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style media="screen">
+    body{
+      background-image: url(https://static.vecteezy.com/system/resources/previews/000/544/021/large_2x/vector-white-grey-honeycomb-abstract-background-wallpaper-and-texture-concept-minimal-theme.jpg);
+      background-size: cover;
+    }
     table {
       border-collapse: collapse;
       }
-
     table, td, th {
-      border: 1px solid black;
+      font-size:15px;
+      border: 2px solid black;
+      }
+      .center{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width:22%;
+      }
+      .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        border-radius: 10px;
+        border-width: 2px;
       }
     </style>
   </head>
   <body>
-    <div class="container" style="width: 650px;">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="text-center">Nepal Land Market</h1>
-          <hr/>
-          <br/>
-          <div id="loader">
-            <p class="text-center">Loading...</p>
-          </div>
-          <div id="content" style="display: none;">
-            <div id="Sale">
-            <h4> Plots on sale </h4>
-            <table>
-            <thead>
-              <tr>
-                 <th>Name</th>
-                 <th>Price</th>
-                 <th>Location</th>
-               </tr>
-            </thead>
-            <tbody id="allPlots">
-            </tbody>
-            </table>
-          <!-- <h5> Location </h5>
-         <p id="allPlotsLocation">
-        </p>
-        <h5> Price </h5>
-       <p id="allPlotsPrice">
-      </p> -->
+    <img src="land.png" class="center">
+    <div id="loader">
+      <p class="text-center">Loading...</p>
     </div>
-    <hr/>
-    <div id="Mine">
-          <h4> My plots </h4>
-          <table>
-          <thead>
+    <div id="content" style="display: none;">
+    <div class="container-fluid">
+      <div class="row">
+            <div class="col-4" id="Sale">
+            <h4><b> Plots on sale</b> </h4>
+            <table class="table table-borderless">
+              <thead class="thead-dark">
+                <tr>
+                   <th>Name</th>
+                   <th>Price</th>
+                   <th>Location</th>
+                   <th>Area</th>
+                 </tr>
+              </thead>
+              <tbody id="allPlots">
+              </tbody>
+              </table>
+    </div>
+
+    <div class="col-5" id="Mine">
+          <h4> <b>My plots</b> </h4>
+          <table class="table table-borderless">
+          <thead class="thead-dark">
             <tr>
                <th>Name</th>
                <th>Price</th>
                <th>Location</th>
                <th>ForSale</th>
+               <th>Area</th>
              </tr>
           </thead>
           <tbody id="myPlots">
           </tbody>
           </table>
-          <!-- <h5> ForSale </h5>
-          <p id="myPlotsForSale">
-          </p> -->
-          <!-- <h5> Test </h5>
-          <p id="testID">
-          </p> -->
-           </div>
+          </div>
+
+        <div class="col-3 card" style="width:300px;margin-top:30px;">
+          <div class="card-body text-center">
+           <form onSubmit="App.putItUp(); return false;">
+          <div class="form-group">
+                 <label class="textData " for="myPlotSelect">Select a plot to put it up for sale</label>
+
+                 <select class="form-control" id="myPlotSelect">
+                 </select>
+                 <label class="textData" for="priceInput">Put a price on it!</label>
+
+                 <input type="number" id="priceInput"></input>
+               </div>
+
+         <button type="submit" style="width:100%;border-radius:20px;"class="btn btn-primary">Put it up for sale</button>
+</form>
+<br>
+         <form onSubmit="App.takeOffMarketFunc(); return false;">
+        <div class="form-group">
+               <label class="textData" for="takeOffPlot">Select a plot to take off of market</label>
+
+               <select class="form-control" id="takeOffPlot">
+               </select>
+
+             </div>
+       <button type="submit" style="width:100%;border-radius:20px;"class="btn btn-primary">Put it off of market</button>
+</form>
+<br>
+      <form onSubmit="App.buyPlots(); return false;">
+          <label for="buy_plots">Buy plots</label>
+          <select id="buy_plots"></select>
+          <button type="submit">Buy</button>
+        </form>
+</div>
+</div>
+</div>
+</div>
+</div>
 
             <hr/>
             <p id="accountAddress" class="text-center"></p>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
